@@ -13,9 +13,10 @@ export default function Home() {
         <meta name="description" content="Get answers from your book" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet"/>
       </Head>
-      <main>
-        <div>
+      <main className='flex justify-center '>
+        <div className='font-semibold text-3xl mt-[45vh]'>
           Hello World
         </div>
       </main>
