@@ -19,6 +19,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     ],
   });
 
-  // console.log(`${book} by ${author} and ${question} `)
   res.status(200).json(response.data.choices[0].message?.content || "");
 };
