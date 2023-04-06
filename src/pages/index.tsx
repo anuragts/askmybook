@@ -1,13 +1,13 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Typewriter from "typewriter-effect";
-// import
+import BuyMeACoffee from "./components/Buyme";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [author, setAuthor] = useState<string>("");
   const [book, setbook] = useState<string>("");
   const [question, setQuestion] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
@@ -23,7 +23,6 @@ export default function Home() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          author,
           book,
           question,
         }),
@@ -52,8 +51,16 @@ export default function Home() {
         <div className="flex-1 h-full bg-gray-100 p-4">
           <form onSubmit={handleSubmit} className="ml-[2rem] mt-[2rem]">
             <h1 className="text-5xl text-gray-800 font-bold mb-4">
-              Ask My Book
+              <span className="transform rotate-[-20deg] inline-block pr-2 text-blue-500">
+                Ask
+              </span>{" "}
+              My Book
             </h1>
+            <p className="text-gray-600 text-2xl ml-5 mt-[3rem] mb-[5rem] font-semibold ">
+              {" "}
+              Ask any question to your{" "}
+              <span className="text-blue-500">favorite books</span> .
+            </p>
             <label
               className="block text-gray-800 text-2xl mt-10  font-bold mb-2"
               htmlFor="book"
@@ -64,26 +71,11 @@ export default function Home() {
               className="block w-full p-3 text-2xl rounded bg-white text-gray-700 border  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               id="book"
               type="text"
-              placeholder="Enter book name"
+              placeholder="eg. The Psychology of Money"
               value={book}
               onChange={(event) => setbook(event.target.value)}
               required
             />
-            <label
-              className="block text-gray-800 text-2xl mt-10 font-bold mb-2"
-              htmlFor="author"
-            >
-              Book Author
-            </label>
-            <input
-              className="block w-full p-3 text-2xl rounded bg-white text-gray-700 border  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              id="author"
-              type="text"
-              placeholder="Enter author name"
-              value={author}
-              onChange={(event) => setAuthor(event.target.value)}
-            />
-
             <label
               className="block text-gray-800 text-2xl mt-10  font-bold mb-2"
               htmlFor="question"
@@ -94,7 +86,7 @@ export default function Home() {
               className="block w-full p-3 text-2xl rounded bg-white text-gray-700 border  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               id="question"
               type="text"
-              placeholder="Enter question"
+              placeholder="eg. What is luck & risk ?"
               value={question}
               onChange={(event) => setQuestion(event.target.value)}
               required
@@ -105,14 +97,27 @@ export default function Home() {
               className="w-full mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               {loading ? "Generating..." : "Generate"}
-            </button>
+            </button> 
+            <div className="text-xl mt-[2rem]">
+                Made by{" "}
+                <span className="text-blue-500">
+                  <Link href="https://twitter.com/theanuragdev">
+                    @theanuragdev
+                  </Link>
+                </span>
+              </div>
+            <div className="mt-[3rem]">
+              <BuyMeACoffee />
+            </div>
           </form>
         </div>
         <div className="flex-1 h-full bg-gray-800 p-4 text-white">
           {output ? (
             <div>
-              <h2 className="text-white font-bold text-3xl mb-4">Answer:</h2>
-              <p className="text-white font-medium text-xl mx-10">
+              <h2 className="text-white font-bold text-3xl mb-4 mt-[2rem]">
+                Answer:
+              </h2>
+              <p className="text-white  leading-10 text-2xl mx-10">
                 <Typewriter
                   options={{
                     autoStart: true,
@@ -126,8 +131,8 @@ export default function Home() {
               </p>
             </div>
           ) : (
-            <div className="flex justify-center items-center h-full">
-              Ask a question .
+            <div className="flex justify-center items-center h-full text-2xl font-semibold">
+              Ask your question .
             </div>
           )}
         </div>
