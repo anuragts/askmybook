@@ -60,7 +60,7 @@ export default function Home() {
               Book Author
             </label>
             <input
-              className="border mt-5 rounded py-4 px-5 text-gray-700 text-2xl  mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="block w-full p-3 text-2xl rounded bg-white text-gray-700 border  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               id="author"
               type="text"
               placeholder="Enter author name"
@@ -75,7 +75,7 @@ export default function Home() {
               Book Name
             </label>
             <input
-              className="border mt-5 rounded py-4 px-5 text-gray-700 text-2xl mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="block w-full p-3 text-2xl rounded bg-white text-gray-700 border  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               id="bookName"
               type="text"
               placeholder="Enter book name"
@@ -90,7 +90,7 @@ export default function Home() {
               Question
             </label>
             <input
-              className="border mt-5 rounded py-4 px-5 text-gray-700 text-2xl mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="block w-full p-3 text-2xl rounded bg-white text-gray-700 border  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               id="question"
               type="text"
               placeholder="Enter question"
@@ -100,11 +100,10 @@ export default function Home() {
             />
             <br />
             <button
-              className="bg-gray-800 mt-10 text-2xl hover:bg-gray-900 text-white font-semibold py-3 px-8 border border-gray-800 rounded shadow"
               type="submit"
-              disabled={loading}
+              className="w-full mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              {loading ? "Loading..." : "Submit"}
+              {loading ? "Generating..." : "Generate"}
             </button>
           </form>
         </div>
