@@ -49,15 +49,18 @@ export default function Home() {
       </Head>
       <main className="flex justify-center h-screen">
         <div className="flex-1 h-full bg-gray-100 p-4">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="ml-[2rem] mt-[2rem]">
+            <h1 className="text-5xl text-gray-800 font-bold mb-4">
+              Ask My Book
+            </h1>
             <label
-              className="block text-gray-800 font-bold mb-2"
+              className="block text-gray-800 text-2xl mt-10 font-bold mb-2"
               htmlFor="author"
             >
               Book Author
             </label>
             <input
-              className="border rounded py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="border mt-5 rounded py-4 px-5 text-gray-700 text-2xl  mb-3 leading-tight focus:outline-none focus:shadow-outline"
               id="author"
               type="text"
               placeholder="Enter author name"
@@ -66,13 +69,13 @@ export default function Home() {
               required
             />
             <label
-              className="block text-gray-800 font-bold mb-2"
+              className="block text-gray-800 text-2xl mt-10  font-bold mb-2"
               htmlFor="bookName"
             >
               Book Name
             </label>
             <input
-              className="border rounded py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="border mt-5 rounded py-4 px-5 text-gray-700 text-2xl mb-3 leading-tight focus:outline-none focus:shadow-outline"
               id="bookName"
               type="text"
               placeholder="Enter book name"
@@ -81,13 +84,13 @@ export default function Home() {
               required
             />
             <label
-              className="block text-gray-800 font-bold mb-2"
+              className="block text-gray-800 text-2xl mt-10  font-bold mb-2"
               htmlFor="question"
             >
               Question
             </label>
             <input
-              className="border rounded py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="border mt-5 rounded py-4 px-5 text-gray-700 text-2xl mb-3 leading-tight focus:outline-none focus:shadow-outline"
               id="question"
               type="text"
               placeholder="Enter question"
@@ -95,8 +98,9 @@ export default function Home() {
               onChange={(event) => setQuestion(event.target.value)}
               required
             />
+            <br />
             <button
-              className="bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2 px-4 border border-gray-800 rounded shadow"
+              className="bg-gray-800 mt-10 text-2xl hover:bg-gray-900 text-white font-semibold py-3 px-8 border border-gray-800 rounded shadow"
               type="submit"
               disabled={loading}
             >
