@@ -1,13 +1,14 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Typewriter from "typewriter-effect";
+// import
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [author, setAuthor] = useState<string>("");
-  const [bookName, setBookName] = useState<string>("");
+  const [book, setbook] = useState<string>("");
   const [question, setQuestion] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [output, setOutput] = useState<string>("");
@@ -16,19 +17,19 @@ export default function Home() {
     event.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("/api/post", {
+      const response = await fetch("/api/get", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           author,
-          bookName,
+          book,
           question,
         }),
       });
       const data = await response.json();
-      setOutput(data.result);
+      setOutput(data);
     } catch (error) {
       console.error(error);
       setOutput("Error fetching data");
@@ -54,6 +55,21 @@ export default function Home() {
               Ask My Book
             </h1>
             <label
+              className="block text-gray-800 text-2xl mt-10  font-bold mb-2"
+              htmlFor="book"
+            >
+              Book Name
+            </label>
+            <input
+              className="block w-full p-3 text-2xl rounded bg-white text-gray-700 border  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              id="book"
+              type="text"
+              placeholder="Enter book name"
+              value={book}
+              onChange={(event) => setbook(event.target.value)}
+              required
+            />
+            <label
               className="block text-gray-800 text-2xl mt-10 font-bold mb-2"
               htmlFor="author"
             >
@@ -66,23 +82,8 @@ export default function Home() {
               placeholder="Enter author name"
               value={author}
               onChange={(event) => setAuthor(event.target.value)}
-              required
             />
-            <label
-              className="block text-gray-800 text-2xl mt-10  font-bold mb-2"
-              htmlFor="bookName"
-            >
-              Book Name
-            </label>
-            <input
-              className="block w-full p-3 text-2xl rounded bg-white text-gray-700 border  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              id="bookName"
-              type="text"
-              placeholder="Enter book name"
-              value={bookName}
-              onChange={(event) => setBookName(event.target.value)}
-              required
-            />
+
             <label
               className="block text-gray-800 text-2xl mt-10  font-bold mb-2"
               htmlFor="question"
@@ -110,17 +111,23 @@ export default function Home() {
         <div className="flex-1 h-full bg-gray-800 p-4 text-white">
           {output ? (
             <div>
-              <h2 className="text-white font-bold text-2xl mb-4">Answer:</h2>
-              <p className="text-white font-medium text-lg">{output}</p>
+              <h2 className="text-white font-bold text-3xl mb-4">Answer:</h2>
+              <p className="text-white font-medium text-xl mx-10">
+                <Typewriter
+                  options={{
+                    autoStart: true,
+                    loop: false,
+                    delay: 10,
+                    deleteSpeed: Infinity,
+                    cursor: "|",
+                    strings: [`${output}`],
+                  }}
+                />
+              </p>
             </div>
           ) : (
             <div className="flex justify-center items-center h-full">
-              <Image
-                src="/book-icon.png"
-                alt="book icon"
-                width={150}
-                height={150}
-              />
+              Ask a question .
             </div>
           )}
         </div>
