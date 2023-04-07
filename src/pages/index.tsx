@@ -50,8 +50,8 @@ export default function Home() {
       <main className="flex justify-center h-screen">
         <div className="flex-1 h-full bg-gray-100 p-4">
           <form onSubmit={handleSubmit} className="ml-[2rem] mt-[2rem]">
-            <h1 className="text-5xl text-gray-800 font-bold mb-4">
-              <span className="transform rotate-[-20deg] inline-block pr-2 text-blue-500">
+            <h1 className="text-5xl text-gray-800 font-bold mb-4 ">
+              <span className="transform rotate-[-20deg] inline-block pr-2 text-blue-500  ">
                 Ask
               </span>{" "}
               My Book
