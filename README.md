@@ -34,6 +34,10 @@ $ npm install
 Thank you for considering contributing to AskMyBook project. You can contribute to the project by following the steps below:
 
 1. Fork this repository.
+ -On the top right section of this page click on "Fork" button.
+ -Make sure to check on "Copy the main branch only" as it will allow you to make changes by creating a branch.
+ -Press "Create Fork" this will create a copy of the project's repository.
+ -Forking a repository allows you to freely experiment with changes without affecting the original project.
 
 2. Clone the forked repository.
 
