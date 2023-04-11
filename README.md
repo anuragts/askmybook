@@ -55,9 +55,11 @@ $ git checkout -b new-feature
 
 5. Make the desired changes.
 
-6. Commit the changes.
+6. Add and Commit the changes.
 
 ```bash
+$ git add .
+
 $ git commit -m "your commit message"
 ```
 
