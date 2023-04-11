@@ -14,7 +14,7 @@ The repository primarily uses the following languages:
 You can clone the repository by running the following command in your terminal:
 
 ```bash
-$ git clone https://github.com/{username}/askmybook.git
+$ git clone https://github.com/anuragts/askmybook.git
 ```
 
 ## Installation
